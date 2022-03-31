@@ -27,7 +27,7 @@ def make_request():
         face = jsonpickle.decode(json.loads(
             response.content.decode("utf-8"))["msg"])
         return face
-    except:
+    except BaseException:
         return False
 
 
@@ -64,15 +64,18 @@ def recognize():
         if not r:
             print("failed in make_request!")
         else:
+            found = False
             for data in ls:
                 with open(data_dir+data, "r") as coba:
                     coba = coba.read()
                 if hello(r, coba):
-                    print("hello %s!" % data)
+                    print("hello %s!" % data.replace("_", " "))
+                    found = True
                     break
                 else:
                     pass
-            print("no data is matched!")
+            if not found:
+                print("no data is matches!")
     else:
         print("failed at take picture!")
 

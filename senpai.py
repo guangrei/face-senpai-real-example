@@ -21,7 +21,7 @@ def take_picture():
 
 
 def make_request():
-    files = {'file': (tmp_image, open(tmp_image, 'rb')), }
+    files = {'file': ("tmp.jpg", open(tmp_image, 'rb')), }
     try:
         response = requests.post(fs_server, files=files)
         face = jsonpickle.decode(json.loads(

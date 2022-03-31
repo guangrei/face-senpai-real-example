@@ -3,7 +3,7 @@ from senpai import *
 
 def menu(x):
     p = {1: train, 2: recognize, 3: list_database, 4: quit}.get(
-        x, lambda: "please select 1,2,3 or 4!")
+        x, lambda: print("please select 1,2,3 or 4!"))
     p()
 
 

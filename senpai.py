@@ -48,7 +48,7 @@ def train():
 
 def hello(you, me):
     you = jsonpickle.decode(json.loads(you))
-    me = you = jsonpickle.decode(json.loads(you))
+    me = you = jsonpickle.decode(json.loads(me))
     distance = np.linalg.norm([you] - me, axis=1)
     compare = list(distance <= 0.6)
     if compare[0]:
